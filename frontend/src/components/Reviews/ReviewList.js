@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import { getReviewRoute } from "../utils/APIRoutes";
 import './ReviewList.css';
 
 function ReviewList() {
@@ -13,7 +14,9 @@ function ReviewList() {
   const fetchReviews = async () => {
     try {
       // console.log("Before API calling");
-      const { data } = await axios.get("http://localhost:5000/api/reviews/getReviews", {
+      const { data } = await axios.get(
+        getReviewRoute, 
+        {
         params: {
           page: currentPage,
           pageSize: pageSize,

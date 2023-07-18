@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { reviewSubmitRoute } from "../utils/APIRoutes";
+import { submitReviewRoute } from "../utils/APIRoutes";
 
 function Reviews() {
   const [name, setName] = useState();
@@ -39,7 +39,7 @@ function Reviews() {
       }
       const ratingValue = parseInt(rating);
       const { data } = await axios.post(
-        reviewSubmitRoute,
+        submitReviewRoute,
         {
           name,
           rating:6-ratingValue,
