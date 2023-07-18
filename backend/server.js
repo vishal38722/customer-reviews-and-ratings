@@ -20,5 +20,5 @@ app.use("/api/reviews", reviewRoutes);
 app.use("/api/user", authRoutes);
 
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+    console.log(`Server listening at PORT ${port}`);
 });

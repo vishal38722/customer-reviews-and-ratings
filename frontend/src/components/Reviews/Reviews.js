@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { reviewSubmitRoute } from "../utils/APIRoutes";
 
 function Reviews() {
   const [name, setName] = useState();
@@ -25,27 +26,27 @@ function Reviews() {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!name || !rating || !review) {
-      console.log("Please fill all the fields");
+      // console.log("Please fill all the fields");
       toast.error("Please fill all the fields.", toastOptions);
       return;
     }
     try {
       if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
         // navigate('./login');
-        console.log("You need to login to submit review");
+        // console.log("You need to login to submit review");
         toast.error("You need to login to submit review.", toastOptions);
         return;
       }
       const ratingValue = parseInt(rating);
       const { data } = await axios.post(
-        "http://localhost:5000/api/reviews/submitReview",
+        reviewSubmitRoute,
         {
           name,
           rating:6-ratingValue,
           review
         }
       );
-      console.log(data);
+      // console.log(data);
       console.log("Review submitted successfully");
     } catch (error) {
       console.log("Unable to submit the review");

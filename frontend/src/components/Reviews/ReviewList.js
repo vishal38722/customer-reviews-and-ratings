@@ -12,7 +12,7 @@ function ReviewList() {
   );
   const fetchReviews = async () => {
     try {
-      console.log("Before API calling");
+      // console.log("Before API calling");
       const { data } = await axios.get("http://localhost:5000/api/reviews/getReviews", {
         params: {
           page: currentPage,
@@ -20,7 +20,7 @@ function ReviewList() {
           sortBy: sortOption,
         },
       });
-      console.log(data);
+      // console.log(data);
       setReviews(data.reviews);
       setTotalPages(data.totalPages);
     } catch (error) {

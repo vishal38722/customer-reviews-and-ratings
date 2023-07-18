@@ -69,14 +69,14 @@ export default function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (handleValidation()) {
-        console.log("Before registerRoute");
+        // console.log("Before registerRoute");
       const { email, username, password } = values;
       const { data } = await axios.post(registerRoute, {
         username,
         email,
         password,
       });
-      console.log("After registerRoute");
+      // console.log("After registerRoute");
 
       if (data.status === false) {
         toast.error(data.msg, toastOptions);
